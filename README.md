@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# PreSer10
+
+# Angular-Mysql-Express-Node-CRUD 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8
 
@@ -27,5 +27,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =======
-# Angular-Mysql-Express-Node-CRUD
->>>>>>> 8d72d0a531750b81e6decfa8ea899c90037f91ee
+
+
