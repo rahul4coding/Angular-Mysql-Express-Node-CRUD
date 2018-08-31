@@ -1,0 +1,69 @@
+<table border="1" cellpadding="10px" cellspacing="10px" align="center" style="font-size:30px">
+
+  <thead style="background-color:gray">
+    <tr>
+      <th>P_ID</th>
+      <th>P_NAME</th>
+      <th>P_COST</th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let x of products">
+      <td>{{x.p_id}}</td>
+      <td>{{x.p_name}}</td>
+      <td>{{x.p_cost}}</td>
+
+    </tr>
+  </tbody>
+
+
+</table>
+<br><br>
+
+
+<hr style="height:2px;background-color: fuchsia;">
+<label>P_ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="insertid">
+<br><br>
+<label>P_NAME</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="text" [(ngModel)]="insertname">
+<br><br>
+<label>P_COST</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="insertcost">
+<br><br>
+<button type="submit" (click)="insert({'p_id':insertid, 'p_name':insertname,'p_cost':insertcost})">Insert</button>
+<br><br>
+<h1>{{insertStatus | json}}</h1>
+<br><br>
+
+
+
+
+
+<hr style="height:2px;background-color: fuchsia">
+<label>P_ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="p_id">
+<br><br>
+<label>P_NAME</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="text" [(ngModel)]="p_name">
+<br><br>
+<label>P_COST</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="p_cost">
+<br><br>
+<button (click)="update({'p_id':p_id, 'p_name':p_name,'p_cost':p_cost})">Update</button>
+<br><br>
+<h1>{{updateStatus | json}}</h1>
+<br><br>
+
+
+<hr style="height:2px;background-color: fuchsia">
+<label>P_ID</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="deleteID">
+<br><br>
+
+<button (click)="remove({'p_id':deleteID})">Delete</button>
+<!-- <button click()="remove({'p_id':deleteID, 'p_name':deleteNAME,'p_cost':deleteCOST})">Delete</button> -->
+<br><br>
+<h1>{{deleteStatus | json}}</h1>
