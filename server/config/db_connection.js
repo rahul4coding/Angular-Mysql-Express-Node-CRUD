@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var prop = require('./db_properties');
 
-//export json object
+
 
 
 module.exports = {
