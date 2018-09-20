@@ -21,7 +21,8 @@ export class mysqlComponent {
     private updateSubscribe: any;
     private deleteSubscribe: any;
 
-    private records: any;
+    records: any;
+    delrecords:any;
 
 
 
@@ -37,8 +38,23 @@ export class mysqlComponent {
     };
 
     public _FetchCallBack = (res): any => {
+        
+        res.sort(this.GetSortOrder("p_id"));
+        
         this.products = res;
+        // this.records =res;
 
+    }
+
+    GetSortOrder(prop){
+        return function(a,b){
+            if(a[prop]>b[prop]){
+                return 1;
+            }else if(a[prop]<b[prop]){
+                return -1;
+            }
+            return 0;
+        }
     }
 
     public _errorCallBack = (err: HttpErrorResponse) => {
@@ -56,12 +72,17 @@ export class mysqlComponent {
     }
 
     public _insertCallBack = (res): any => {
-        this.insertStatus = res;
-        if (res.insert == "success") {
-            this.products.push(this.records);
+        
+        //   if (this.records == "success") {
+            this.insertStatus = res;    
+        this.products.push(this.records);
+        this.products.sort(this.GetSortOrder("p_id"));
+            
+            
 
 
-        }
+    //  }
+        
 
 
 
@@ -111,6 +132,14 @@ export class mysqlComponent {
         this.deleteSubscribe = this._delete.deleteProducts(obj).subscribe(this._deleteCallBack, this._errorCallBack);
 
 
+        // this.delrecords=obj;
+
+
+        
+
+
+
+
 
 
 
@@ -121,6 +150,10 @@ export class mysqlComponent {
 
     public _deleteCallBack = (res): any => {
         this.deleteStatus = res;
+        
+         
+        
+        
     }
 
 
